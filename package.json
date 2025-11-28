@@ -1,0 +1,20 @@
+{
+  "name": "toogoodtopark",
+  "version": "1.0.0",
+  "description": "TooGoodToPark Full Stack Application",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev:frontend": "npm run dev --workspace=KaShoot",
+    "dev:backend": "npm run start --workspace=server",
+    "build": "npm run build --workspace=KaShoot",
+    "install:all": "npm install && npm install --workspace=Kashoot && npm install --workspace=Server"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}

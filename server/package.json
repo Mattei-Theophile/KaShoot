@@ -1,0 +1,32 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "core/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node core/server.js",
+    "dev": "node core/server.js",
+    "swagger:validate": "swagger-jsdoc -d swagger.js -o swagger.json services/**/*.js api/**/*.js",
+    "swagger:export": "curl http://localhost:3000/api-docs/swagger.json -o swagger.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "colors": "^1.4.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "fs-extra": "^9.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "path": "^0.12.7",
+    "sharp": "^0.34.4",
+    "ws": "^8.18.3"
+  }
+}
