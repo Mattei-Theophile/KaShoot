@@ -7,7 +7,7 @@
 export class Question {
     id;
     question;
-    answer;
+    answers; // dictionnaire ou la clé est la question et la valeure si la répones et bonne ou fausse
     constructor() {
         if (this.constructor === Question) {
             throw new TypeError("Cannot construct Abstract instances directly");
@@ -18,12 +18,16 @@ export class Question {
         return this.question;
     }
 
-    getAnswer() {
-        return this.answer;
+    getAnswersf() {
+        return this.answers;
     }
 
     run(){
         throw new Error("Method not implemented.");
+    }
+
+    checkAnswerValidity(response){
+        return answers[response];
     }
 
 }

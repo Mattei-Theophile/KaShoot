@@ -11,10 +11,10 @@ import {Question} from "./question";
 
 export class Quiz extends Question {
 
-    constructor(question, answer) {
+    constructor(question, answers) {
         super();
         super.question = question;
-        super.answer = answer;
+        super.answer = this.answers;
 
     }
 

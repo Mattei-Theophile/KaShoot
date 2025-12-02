@@ -10,4 +10,12 @@ import {Question} from "./question";
 
 
 
-export class TrueFalse extends Question {}
+export class TrueFalse extends Question {
+
+    constructor(question, answer) {
+        super();
+        super.question = question;
+        super.answer = answer;
+    }
+
+}
