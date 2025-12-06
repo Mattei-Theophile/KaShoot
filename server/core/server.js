@@ -1,27 +1,24 @@
-const WebSocket = require('ws');
+const http = require('http');
+const app = require('./app');
+const socketService = require('./socketService');
+const registerChatHandlers = require('./sockets/chatHandlers');
 
-// Create a new WebSocket Server on port 8080
-const wss = new WebSocket.Server({ port: 8080 });
+const PORT = process.env.PORT || 3000;
 
-console.log('Server started on port 8080');
+const server = http.createServer(app);
 
-// Event: 'connection' - triggers when a client connects
-wss.on('connection', (ws) => {
-    console.log('A new client connected!');
+const io = socketService.init(server);
 
-    // Send a welcome message to the client immediately
-    ws.send('Welcome to the WebSocket server!');
+io.on('connection', (socket) => {
+    console.log('Client connected', socket.id);
 
-    // Event: 'message' - triggers when the server receives data from this client
-    ws.on('message', (message) => {
-        console.log(`Received message => ${message}`);
+    registerChatHandlers(io, socket);
 
-        // Echo the message back to the client
-        ws.send(`You said: ${message}`);
+    socket.on('disconnect', () => {
+        console.log('Client disconnected', socket.id)
     });
+})
 
-    // Event: 'close' - triggers when the client disconnects
-    ws.on('close', () => {
-        console.log('Client has disconnected');
-    });
+server.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
 });
