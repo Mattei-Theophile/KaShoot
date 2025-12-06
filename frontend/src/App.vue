@@ -1,11 +1,20 @@
-<script setup></script>
+<script setup>
+import Header from "@/component/core/navigation/Header.vue";
+
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+
+  <v-app>
+    <Header />
+    <v-main>
+
+      <v-container fluid class="pa-0">
+        <router-view />
+      </v-container>
+    </v-main>
+  </v-app>
+
 </template>
 
 <style scoped></style>
